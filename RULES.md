@@ -9,6 +9,7 @@ THE CURRENT DATE IS: MARCH, 2025. This is hardcoded so it could be later than th
 **RESEARCH MINDSET:** You're helping build doing AI alignment research and building scaffolding and tools of automated alignment research with AIs, which requires both exploratory research coding and production software development. Research work requires a fundamentally different approach than standard software development. Prioritize information gain and learning over perfect implementation, especially in early stages. Be aware of when to operate in "de-risk mode" (rapid experimentation) versus "extended project mode" (comprehensive engineering). Your goal is to maximize research velocity while maintaining sufficient rigor to trust experimental results.
 
 <coding practices>
+
 ## Coding Practices
 
 **VARIABLE NAMING:** Major variables should be in all caps, defined at the top of the script, and not user input unless otherwise specified.
@@ -22,8 +23,6 @@ THE CURRENT DATE IS: MARCH, 2025. This is hardcoded so it could be later than th
 **ENV MANAGEMENT:** Update the .env.example correctly when adding new API keys.
 
 **ENV ASSUMPTION:** When checking .env, assume that I've already added the actual API key for each variable (the IDE I'm using doesn't show you the actual keys, just the variable names).
-
-
 
 **DEPENDENCY MANAGEMENT:** Create and update requirements.txt without specifying version numbers.
 
@@ -57,6 +56,7 @@ THE CURRENT DATE IS: MARCH, 2025. This is hardcoded so it could be later than th
 </coding practices>
 
 <command execution>
+
 ## Command Execution
 
 **SCRIPT CREATION:** When you are about to run a long bash commands, write a script that you save in ./agent-scripts/ (which you can create if it doesn't exist). Then, just run the script.
@@ -71,6 +71,7 @@ THE CURRENT DATE IS: MARCH, 2025. This is hardcoded so it could be later than th
 </command execution>
 
 <cursor AI IDE>
+
 ## Cursor Integration
 
 **UPDATE SCRATCHPAD:** After every couple messages between the user and yourself, update the scratchpad in the .cursorrules file (in root) to provide context about what has been done. If the scratchpad gets too long, you can delete a lot of the old notes while updating the file to add the new ones.
@@ -87,6 +88,7 @@ NOTE: You CAN see the outputs of the terminal, so if you see all the files from 
 </cursor AI IDE>
 
 <git>
+
 ## Git Practices
 
 **NEW BRANCH:** If the user says, "NGB" at the beginning of a new conversation, you should create a New Git Branch off of the current git branch so that we can ensure the code changes do not modify the current git branch until we decide to merge it.
@@ -111,13 +113,16 @@ More Git stuff:
 </git>
 
 <cursor-tools npm package>
+
 ## Cursor-Tools Usage
 
 Usage: cursor-tools [--model=<model>] [--max-tokens=<number>] [--from-github=<github_url>] [--output=<filepath>] [--save-to=<filepath>] [--hint=<hint>] <command> "<query>"
 Note: Options can be specified in kebab-case (--max-tokens) or camelCase (--maxTokens)
 Both --key=value and --key value formats are supported
 
-**WEB RESEARCH:** If you are doing a web research, use "cursor-tools web" in the command-line (which uses the Perplexity AI search engine) to search for up-to-date information about libraries, APIs, error messages, and best practices. IMPORTANT: IF YOU GET AN ERROR WITH A PACKAGE (E.G. OFTEN WITH LLM APIS), USE "cursor-tools web" TO GET UP-TO-DATE INFORMATION TO SOLVE THE ISSUE. DON'T JUST LOOP TRYING TO FIGURE IT OUT ON YOUR OWN WITHOUT A WEB SEARCH.
+**WEB RESEARCH:** If you are doing a web research, use "cursor-tools web" in the command-line (which uses the Perplexity AI search engine) to search for up-to-date information about libraries, APIs, error messages, and best practices. 
+
+IMPORTANT: IF YOU GET AN ERROR WITH A PACKAGE (e.g. OFTEN WITH LLM APIS), USE "cursor-tools web" TO GET UP-TO-DATE INFORMATION TO SOLVE THE ISSUE. DON'T JUST LOOP TRYING TO FIGURE IT OUT ON YOUR OWN WITHOUT A WEB SEARCH.
 
 **CODEBASE ANALYSIS:** For codebase-wide analysis, use cursor-tools repo (or the user mentions "ask gemini") to understand architecture, find relevant code, debug issues, and review code quality. IMPORTANT: IF YOU DON'T HAVE CONTEXT ABOUT THE REPOSITORY IN THE .cursorrules FILE OR YOU LOAD LOTS OF CODE INTO THE REPOSITORY, USE "cursor-tools repo" TO GIVE YOURSELF CONTEXT.
 
@@ -151,6 +156,7 @@ Both --key=value and --key value formats are supported
 When asked to enter "p-mode" deeply reflect upon the changes being asked and analyze existing code to map the full scope of changes needed. Before proposing a plan, ask 4-6 clarifying questions based on your findings. Once answered, draft a comprehensive plan of action and ask me for approval on that plan. Once approved, implement all steps in that plan. After completing each phase/step, mention what was just completed and what the next steps are + phases remaining after these steps.
 
 <debugging principles>
+
 ## Debugging Protocol
 
 When asked to enter "Debugger Mode" or when encountering errors, follow this exact sequence:
@@ -196,6 +202,7 @@ For persistent or complex issues, suggest using cursor-tools web to search for s
 </debugging principles>
 
 <research principles>
+
 # BELOW IS IMPORTANT when the user is doing a research project, but ignore for web development.
 
 ## Research Workflow Modes
@@ -267,6 +274,7 @@ For persistent or complex issues, suggest using cursor-tools web to search for s
 </research principles>
 
 <to do instructions>
+
 # Instructions
 
 During your interaction with the user, if you find anything reusable in this project (e.g. version of a library, model name), especially about a fix to a mistake you made or a correction you received, you should take note in the `Lessons` section in the `.cursorrules` file so you will not make the same mistake again. Create the .cursorrules file in the root of the repository if it does not already exist.
@@ -274,7 +282,6 @@ During your interaction with the user, if you find anything reusable in this pro
 You should also use the `.cursorrules` file as a Scratchpad to organize your thoughts. Especially when you receive a new task, you should first review the content of the Scratchpad, clear old different task if necessary, first explain the task, and plan the steps you need to take to complete the task. You can use todo markers to indicate the progress, e.g.
 [X] Task 1
 [ ] Task 2
-
 - Update the progress of the task in the Scratchpad when you finish a subtask.
 - Especially when you finished a milestone, it will help to improve your depth of task accomplishment to use the Scratchpad to reflect and plan.
 - The goal is to help you maintain a big picture as well as the progress of the task. Always refer to the Scratchpad when you plan the next step.
